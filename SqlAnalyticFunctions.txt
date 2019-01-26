@@ -1,0 +1,12 @@
+SQL Analytic Functions
+
+SELECT department_id, last_name, salary,
+SUM(salary) OVER (PARTITION BY department_id) cumulative_salary
+FROM employees
+ORDER BY department_id;
+
+SELECT department_id, last_name, salary,
+DENSE_RANK() OVER(ORDER BY salary DESC) ranking
+FROM employees
+WHERE department_id = 50
+ORDER BY salary DESC;
